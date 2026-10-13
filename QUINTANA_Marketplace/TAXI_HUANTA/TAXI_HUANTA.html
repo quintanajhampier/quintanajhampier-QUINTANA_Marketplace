@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAXI HUANTA</title>
+    <link rel="stylesheet" href="TAXI_HUANTA.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Encabezado -->
+        <header class="taxi-header">
+            <!-- BOTÓN PARA REGRESAR AQUÍ -->
+            <a href="../index.html" class="btn-volver-taxi">⬅️</a>
+            
+            <div class="logo">🚕</div>
+            <div class="title-container">
+                <h1>TAXI HUANTA</h1>
+                <span class="status">🟢 Central Activa</span>
+            </div>
+            <div class="menu-icon">⋮</div>
+        </header>
+
+        <!-- Área de mensajes -->
+        <main id="chat-box" class="chat-box">
+            <div class="msg system">Bienvenido al grupo de coordinación de TAXI HUANTA.</div>
+        </main>
+
+        <!-- Barra de controles -->
+        <footer class="input-area">
+            <!-- Botones ocultos para subir archivos -->
+            <input type="file" id="input-foto" accept="image/*" hidden>
+            <input type="file" id="input-audio" accept="audio/*" hidden>
+
+            <button id="btn-foto" class="icon-btn" title="Enviar Foto">📷</button>
+            <button id="btn-audio" class="icon-btn" title="Enviar Audio">🎤</button>
+            
+            <input type="text" id="input-texto" placeholder="Escribe un reporte o dirección...">
+            
+            <button id="btn-enviar" class="send-btn">Enviar</button>
+        </footer>
+    </div>
+    <script src="TAXI_HUANTA.js"></script>
+</body>
+</html>

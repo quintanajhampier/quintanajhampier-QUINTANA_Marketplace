@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad Huanta</title>
+    <link rel="stylesheet" href="Chat.css">
+</head>
+<body>
+    <div class="foro-container">
+        
+        <header class="foro-header">
+            <a href="../index.html" class="btn-volver">⬅ Volver</a>
+            <div class="foro-info">
+                <h2>📢 HUANTA - LA ESMERALDA DE LOS ANDES </h2>
+                <p>Ofertas y consultas locales (se borran en 48h)</p>
+            </div>
+        </header>
+
+        <main class="foro-mensajes" id="chat-mensajes">
+            <!-- Los comentarios aparecerán aquí -->
+        </main>
+
+        <footer class="foro-input-area">
+            <!-- Etiqueta para mostrar el nombre del archivo seleccionado -->
+            <div id="info-archivo" class="info-archivo"></div>
+            
+            <form id="form-chat">
+                <!-- Botón de clip ocultando el input real de archivos -->
+                <label for="input-archivo" class="btn-adjuntar" title="Adjuntar foto, video o audio">📎</label>
+                <input type="file" id="input-archivo" accept="image/*, video/*, audio/*" hidden>
+
+                <input 
+                    type="text" 
+                    id="input-mensaje" 
+                    placeholder="Escribe tu comentario, oferta o pregunta..." 
+                    autocomplete="off"
+                >
+                <button type="submit" id="btn-enviar">Publicar</button>
+            </form>
+        </footer>
+
+    </div>
+
+    <script src="Chat.js"></script>
+</body>
+</html>

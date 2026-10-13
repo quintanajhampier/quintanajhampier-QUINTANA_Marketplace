@@ -1,0 +1,1187 @@
+/* =========================================
+   1. VARIABLES GLOBALES
+========================================= */
+
+:root {
+
+    --color-primario: #1cbc27;
+    --color-secundario: #66d318;
+    --color-acento: #f59e0b;
+
+    --color-fondo: hsl(220, 14%, 96%);
+    --color-texto: #1f2937;
+    --color-blanco: #ffffff;
+
+    --color-gris: #6b7280;
+    --color-gris-claro: #e5e7eb;
+
+    --color-error: #ef4444;
+
+    --sombra-suave:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+    --sombra-grande:
+        0 10px 25px rgba(0, 0, 0, 0.15);
+
+    --radio: 8px;
+
+}
+
+
+/* =========================================
+   2. RESETEO GLOBAL
+========================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family:
+        'Segoe UI',
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background-color: var(--color-fondo);
+
+    color: var(--color-texto);
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================
+   3. HEADER
+========================================= */
+
+.header-principal {
+
+    background-color: var(--color-blanco);
+
+    padding: 15px 5%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    box-shadow: var(--sombra-suave);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+}
+
+
+.logo-contenedor {
+
+    flex-shrink: 0;
+
+}
+
+
+.logo-contenedor h1 {
+
+    color: var(--color-primario);
+
+    font-size: 24px;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   4. BUSCADOR
+========================================= */
+
+.barra-busqueda {
+
+    display: flex;
+
+    width: 40%;
+
+    min-width: 250px;
+
+}
+
+
+.barra-busqueda input {
+
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: 2px solid var(--color-gris-claro);
+
+    border-right: none;
+
+    border-radius: 5px 0 0 5px;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+.barra-busqueda input:focus {
+
+    border-color: var(--color-primario);
+
+}
+
+
+.btn-buscar {
+
+    background-color: var(--color-primario);
+
+    color: var(--color-blanco);
+
+    border: none;
+
+    padding: 10px 20px;
+
+    border-radius: 0 5px 5px 0;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: background 0.3s;
+
+}
+
+
+.btn-buscar:hover {
+
+    background-color: var(--color-secundario);
+
+}
+
+
+/* =========================================
+   5. ACCIONES DEL USUARIO
+========================================= */
+
+.acciones-usuario {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.acciones-usuario a {
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.icono-carrito {
+
+    color: var(--color-texto);
+
+}
+
+
+.btn-login {
+
+    background-color: var(--color-primario);
+
+    color: var(--color-blanco);
+
+    padding: 8px 16px;
+
+    border-radius: 5px;
+
+    transition: background 0.3s;
+
+}
+
+
+.btn-login:hover {
+
+    background-color: var(--color-secundario);
+
+}
+
+
+/* =========================================
+   6. BARRA DE CATEGORÍAS
+========================================= */
+
+.barra-categorias {
+
+    background-color: var(--color-secundario);
+
+    padding: 10px 5%;
+
+}
+
+
+.barra-categorias ul {
+
+    list-style: none;
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.barra-categorias a {
+
+    color: var(--color-blanco);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: color 0.3s;
+
+}
+
+
+.barra-categorias a:hover {
+
+    color: var(--color-acento);
+
+}
+
+
+/* =========================================
+   7. BANNER HERO
+========================================= */
+
+.banner-hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primario),
+            #9333ea
+        );
+
+    color: var(--color-blanco);
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.banner-hero h2 {
+
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.banner-hero p {
+
+    margin-bottom: 20px;
+
+    font-size: 17px;
+
+}
+
+
+.btn-banner {
+
+    background-color: var(--color-blanco);
+
+    color: var(--color-primario);
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+
+}
+
+
+.btn-banner:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--sombra-suave);
+
+}
+
+
+/* =========================================
+   8. CONTENEDOR PRINCIPAL
+========================================= */
+
+.contenedor-principal {
+
+    display: grid;
+
+    grid-template-columns: 250px 1fr;
+
+    gap: 30px;
+
+    padding: 0 5%;
+
+    margin-bottom: 50px;
+
+}
+
+
+/* =========================================
+   9. PANEL DE FILTROS
+========================================= */
+
+.panel-filtros {
+
+    background-color: var(--color-blanco);
+
+    padding: 20px;
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra-suave);
+
+    align-self: start;
+
+}
+
+
+.panel-filtros h3 {
+
+    margin-bottom: 15px;
+
+    border-bottom:
+        2px solid var(--color-fondo);
+
+    padding-bottom: 10px;
+
+}
+
+
+.grupo-filtro {
+
+    margin-bottom: 25px;
+
+}
+
+
+.grupo-filtro h4 {
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    color: #4b5563;
+
+}
+
+
+.grupo-filtro label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+.grupo-filtro input[type="range"] {
+
+    width: 100%;
+
+    cursor: pointer;
+
+}
+
+
+.btn-limpiar-filtros {
+
+    width: 100%;
+
+    padding: 9px;
+
+    border: 1px solid var(--color-gris-claro);
+
+    background-color: var(--color-blanco);
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: background 0.3s;
+
+}
+
+
+.btn-limpiar-filtros:hover {
+
+    background-color: var(--color-fondo);
+
+}
+
+
+/* =========================================
+   10. CATÁLOGO
+========================================= */
+
+.catalogo-productos h3 {
+
+    margin-bottom: 5px;
+
+}
+
+
+.titulo-catalogo {
+
+    margin-bottom: 20px;
+
+}
+
+
+#contador-productos {
+
+    color: var(--color-gris);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   11. GRID DE PRODUCTOS
+========================================= */
+
+.grid-productos {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(220px, 1fr)
+        );
+
+    gap: 20px;
+
+}
+
+
+/* =========================================
+   12. TARJETA DE PRODUCTO
+========================================= */
+
+.tarjeta-producto {
+
+    background-color: var(--color-blanco);
+
+    border-radius: var(--radio);
+
+    overflow: hidden;
+
+    box-shadow: var(--sombra-suave);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+
+    position: relative;
+
+}
+
+
+.tarjeta-producto:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 15px -3px
+        rgba(0, 0, 0, 0.1);
+
+}
+
+
+.imagen-producto {
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+.info-producto {
+
+    padding: 15px;
+
+}
+
+
+.etiqueta-oferta {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 10px;
+
+    background-color: var(--color-acento);
+
+    color: var(--color-blanco);
+
+    padding: 3px 8px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.info-producto h4 {
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.vendedor {
+
+    font-size: 12px;
+
+    color: var(--color-gris);
+
+    margin-bottom: 10px;
+
+}
+
+
+.precio {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: var(--color-primario);
+
+    margin-bottom: 15px;
+
+}
+
+
+.precio-viejo {
+
+    font-size: 14px;
+
+    color: #9ca3af;
+
+    text-decoration: line-through;
+
+    margin-left: 5px;
+
+    font-weight: normal;
+
+}
+
+
+/* =========================================
+   13. BOTÓN DEL CARRITO
+========================================= */
+
+.btn-agregar {
+
+    width: 100%;
+
+    background-color: var(--color-primario);
+
+    color: var(--color-blanco);
+
+    border: none;
+
+    padding: 10px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        background 0.3s,
+        transform 0.2s;
+
+}
+
+
+.btn-agregar:hover {
+
+    background-color: var(--color-secundario);
+
+}
+
+
+.btn-agregar:active {
+
+    transform: scale(0.98);
+
+}
+
+
+.btn-agregado {
+
+    background-color: #10b981;
+
+}
+
+
+/* =========================================
+   14. SIN RESULTADOS
+========================================= */
+
+.sin-resultados {
+
+    text-align: center;
+
+    background-color: var(--color-blanco);
+
+    padding: 50px 20px;
+
+    border-radius: var(--radio);
+
+    box-shadow: var(--sombra-suave);
+
+}
+
+
+.sin-resultados h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.sin-resultados p {
+
+    color: var(--color-gris);
+
+}
+
+
+/* =========================================
+   15. FOOTER
+========================================= */
+
+.footer-personal {
+    background: #51075b;
+    color: var(--color-blanco);
+    padding: 45px 5% 20px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.footer-contenido {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.footer-seccion {
+    min-width: 0;
+}
+
+.footer-seccion h3 {
+    margin: 0 0 14px;
+    color: var(--color-acento);
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.footer-seccion p {
+    margin: 0;
+    color: #e5e7eb;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.lista-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: grid;
+    gap: 9px;
+}
+
+.lista-contacto li {
+    color: #e5e7eb;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.redes-iconos {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.redes-iconos a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.redes-iconos a:hover {
+    color: var(--color-blanco);
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    width: 100%;
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #d1d5db;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   16. MODAL DE LOGIN
+========================================= */
+
+.modal-login {
+
+    width: min(420px, 90%);
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 0;
+
+    background-color: var(--color-blanco);
+
+    box-shadow: var(--sombra-grande);
+
+    margin: auto;
+
+}
+
+
+.modal-login::backdrop {
+
+    background-color:
+        rgba(0, 0, 0, 0.6);
+
+}
+
+
+.modal-contenido {
+
+    padding: 30px;
+
+    position: relative;
+
+}
+
+
+.modal-contenido h3 {
+
+    margin-bottom: 8px;
+
+    font-size: 24px;
+
+}
+
+
+.texto-modal {
+
+    color: var(--color-gris);
+
+    margin-bottom: 20px;
+
+}
+
+
+.btn-cerrar-modal {
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+#form-login {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+#form-login label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-top: 8px;
+
+}
+
+
+#form-login input {
+
+    padding: 11px;
+
+    border: 1px solid var(--color-gris-claro);
+
+    border-radius: 5px;
+
+    outline: none;
+
+}
+
+
+#form-login input:focus {
+
+    border-color: var(--color-primario);
+
+}
+
+
+.btn-entrar {
+
+    margin-top: 15px;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: var(--color-primario);
+
+    color: var(--color-blanco);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.btn-entrar:hover {
+
+    background-color: var(--color-secundario);
+
+}
+
+
+/* =========================================
+   17. RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .header-principal {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .logo-contenedor {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+
+    .barra-busqueda {
+
+        width: 100%;
+
+    }
+
+
+    .acciones-usuario {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+    .contenedor-principal {
+
+        grid-template-columns: 200px 1fr;
+
+    }
+
+}
+
+
+/* =========================================
+   18. RESPONSIVE - CELULAR
+========================================= */
+
+@media (max-width: 650px) {
+
+    .header-principal {
+
+        padding: 12px 4%;
+
+    }
+
+
+    .logo-contenedor h1 {
+
+        font-size: 20px;
+
+    }
+
+
+    .barra-categorias {
+
+        padding: 10px 4%;
+
+    }
+
+
+    .barra-categorias ul {
+
+        justify-content: center;
+
+        gap: 12px;
+
+    }
+
+
+    .banner-hero {
+
+        padding: 40px 15px;
+
+    }
+
+
+    .banner-hero h2 {
+
+        font-size: 28px;
+
+    }
+
+
+    .contenedor-principal {
+
+        display: block;
+
+        padding: 0 4%;
+
+    }
+
+
+    .panel-filtros {
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .grid-productos {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+
+    }
+
+
+    .imagen-producto {
+
+        height: 160px;
+
+    }
+
+
+    .info-producto {
+
+        padding: 10px;
+
+    }
+
+
+    .info-producto h4 {
+
+        font-size: 14px;
+
+    }
+
+
+    .precio {
+
+        font-size: 17px;
+
+    }
+
+
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-personal {
+        padding: 35px 4% 18px;
+    }
+
+}
+
+
+/* =========================================
+   19. CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 420px) {
+
+    .grid-productos {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .acciones-usuario {
+
+        flex-direction: column;
+
+        gap: 8px;
+
+    }
+
+
+    .acciones-usuario a {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+}
+
+/* =========================================
+   20. BOTÓN "VER MÁS"
+========================================= */
+
+.btn-ver-mas {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 30px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-ver-mas:hover {
+    background-color: var(--color-secundario);
+    transform: translateY(-1px);
+}
+
+.btn-ver-mas:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-ver-mas[hidden] {
+    display: none;
+}

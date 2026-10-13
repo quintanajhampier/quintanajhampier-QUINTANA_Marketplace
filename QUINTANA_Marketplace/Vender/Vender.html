@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Publica productos y servicios en Rantiy y Rantikuy."
+    >
+
+    <title>Publicar | Rantiy y Rantikuy</title>
+
+    <link rel="stylesheet" href="Vender.css">
+</head>
+
+<body>
+
+    <main class="pagina-vender">
+
+        <!-- CABECERA -->
+        <header class="cabecera-vender">
+
+            <a href="../index.html" class="logo-vender">
+                <span class="logo-icono">R</span>
+
+                <span>
+                    <strong>Rantiy</strong>
+                    <small>y Rantikuy</small>
+                </span>
+            </a>
+
+            <div class="titulo-cabecera">
+                <span class="etiqueta">MARKETPLACE</span>
+                <h1>Publicar producto</h1>
+                <p>Agrega tu producto y muéstralo a compradores.</p>
+            </div>
+
+            <a href="../index.html" class="btn-regresar">
+                ← Volver
+            </a>
+
+        </header>
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="contenido-vender">
+
+            <!-- FORMULARIO -->
+            <div class="tarjeta-formulario">
+
+                <div class="progreso">
+                    <div class="progreso-activo">
+                        <span>1</span>
+                        <div>
+                            <strong>Información</strong>
+                            <small>Datos del producto</small>
+                        </div>
+                    </div>
+
+                    <div class="linea-progreso"></div>
+
+                    <div class="progreso-paso">
+                        <span>2</span>
+                        <div>
+                            <strong>Publicación</strong>
+                            <small>Revisar y publicar</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form id="form-vender" novalidate>
+
+                    <!-- FOTOS -->
+                    <section class="seccion-formulario">
+
+                        <div class="titulo-seccion">
+                            <div class="numero-seccion">01</div>
+
+                            <div>
+                                <h2>Fotos del producto</h2>
+                                <p>Agrega hasta 6 imágenes.</p>
+                            </div>
+                        </div>
+
+
+                        <label
+                            for="imagenes"
+                            class="zona-imagenes"
+                            id="zona-imagenes"
+                        >
+
+                            <div class="icono-camara">📷</div>
+
+                            <strong>Agregar fotos</strong>
+
+                            <span>
+                                JPG, PNG o WEBP · Máximo 5 MB por imagen
+                            </span>
+
+                            <button
+                                type="button"
+                                class="btn-seleccionar"
+                                id="btn-seleccionar"
+                            >
+                                Seleccionar imágenes
+                            </button>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="imagenes"
+                            name="imagenes"
+                            accept="image/jpeg,image/png,image/webp"
+                            multiple
+                            hidden
+                        >
+
+                        <div
+                            class="galeria-preview"
+                            id="galeria-preview"
+                            aria-live="polite"
+                        ></div>
+
+                        <p
+                            class="mensaje-error"
+                            id="error-imagenes"
+                        ></p>
+
+                    </section>
+
+
+                    <!-- INFORMACIÓN -->
+                    <section class="seccion-formulario">
+
+                        <div class="titulo-seccion">
+
+                            <div class="numero-seccion">02</div>
+
+                            <div>
+                                <h2>Información del producto</h2>
+                                <p>Describe lo que estás vendiendo.</p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- NOMBRE -->
+                        <div class="campo">
+
+                            <label for="nombre">
+                                Nombre del producto
+                                <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nombre"
+                                name="nombre"
+                                required
+                                maxlength="80"
+                                autocomplete="off"
+                                placeholder="Ej. Zapatillas deportivas Nike"
+                            >
+
+                            <div class="campo-footer">
+                                <small>Usa un nombre claro y específico.</small>
+                                <small>
+                                    <span id="contador-nombre">0</span>/80
+                                </small>
+                            </div>
+
+                            <p class="mensaje-error" id="error-nombre"></p>
+
+                        </div>
+
+
+                        <!-- PRECIO -->
+                        <div class="fila-campos">
+
+                            <div class="campo">
+
+                                <label for="precio">
+                                    Precio
+                                    <span>*</span>
+                                </label>
+
+                                <div class="input-precio">
+                                    <span>S/</span>
+
+                                    <input
+                                        type="number"
+                                        id="precio"
+                                        name="precio"
+                                        required
+                                        min="0.01"
+                                        max="9999999"
+                                        step="0.01"
+                                        inputmode="decimal"
+                                        placeholder="0.00"
+                                    >
+                                </div>
+
+                                <p
+                                    class="mensaje-error"
+                                    id="error-precio"
+                                ></p>
+
+                            </div>
+
+
+                            <!-- CATEGORÍA -->
+                            <div class="campo">
+
+                                <label for="categoria">
+                                    Categoría
+                                    <span>*</span>
+                                </label>
+
+                                <select
+                                    id="categoria"
+                                    name="categoria"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Selecciona una categoría
+                                    </option>
+
+                                    <option value="tecnologia">
+                                        💻 Tecnología
+                                    </option>
+
+                                    <option value="celulares">
+                                        📱 Celulares
+                                    </option>
+
+                                    <option value="ropa">
+                                        👕 Ropa y accesorios
+                                    </option>
+
+                                    <option value="hogar">
+                                        🏠 Hogar
+                                    </option>
+
+                                    <option value="vehiculos">
+                                        🚗 Vehículos
+                                    </option>
+
+                                    <option value="videojuegos">
+                                        🎮 Videojuegos
+                                    </option>
+
+                                    <option value="deportes">
+                                        ⚽ Deportes
+                                    </option>
+
+                                    <option value="servicios">
+                                        🛠️ Servicios
+                                    </option>
+
+                                    <option value="otros">
+                                        📦 Otros
+                                    </option>
+
+                                </select>
+
+                                <p
+                                    class="mensaje-error"
+                                    id="error-categoria"
+                                ></p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CONDICIÓN -->
+                        <div class="campo">
+
+                            <label for="condicion">
+                                Estado del producto
+                                <span>*</span>
+                            </label>
+
+                            <select
+                                id="condicion"
+                                name="condicion"
+                                required
+                            >
+
+                                <option value="">
+                                    Selecciona el estado
+                                </option>
+
+                                <option value="nuevo">
+                                    Nuevo
+                                </option>
+
+                                <option value="como-nuevo">
+                                    Como nuevo
+                                </option>
+
+                                <option value="buen-estado">
+                                    Buen estado
+                                </option>
+
+                                <option value="usado">
+                                    Usado
+                                </option>
+
+                            </select>
+
+                            <p
+                                class="mensaje-error"
+                                id="error-condicion"
+                            ></p>
+
+                        </div>
+
+
+                        <!-- DESCRIPCIÓN -->
+                        <div class="campo">
+
+                            <label for="descripcion">
+                                Descripción
+                                <span>*</span>
+                            </label>
+
+                            <textarea
+                                id="descripcion"
+                                name="descripcion"
+                                required
+                                maxlength="1000"
+                                rows="6"
+                                placeholder="Describe las características, estado, detalles importantes y condiciones del producto..."
+                            ></textarea>
+
+                            <div class="campo-footer">
+
+                                <small>
+                                    Una buena descripción genera confianza.
+                                </small>
+
+                                <small>
+                                    <span id="contador-descripcion">0</span>/1000
+                                </small>
+
+                            </div>
+
+                            <p
+                                class="mensaje-error"
+                                id="error-descripcion"
+                            ></p>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- UBICACIÓN -->
+                    <section class="seccion-formulario">
+
+                        <div class="titulo-seccion">
+
+                            <div class="numero-seccion">03</div>
+
+                            <div>
+                                <h2>Ubicación</h2>
+                                <p>Indica dónde se encuentra el producto.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="fila-campos">
+
+                            <div class="campo">
+
+                                <label for="departamento">
+                                    Departamento
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="departamento"
+                                    name="departamento"
+                                    maxlength="60"
+                                    placeholder="Ej. Lima"
+                                >
+
+                            </div>
+
+
+                            <div class="campo">
+
+                                <label for="distrito">
+                                    Distrito / Ciudad
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="distrito"
+                                    name="distrito"
+                                    maxlength="60"
+                                    placeholder="Ej. Los Olivos"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- CONTACTO -->
+                    <section class="seccion-formulario">
+
+                        <div class="titulo-seccion">
+
+                            <div class="numero-seccion">04</div>
+
+                            <div>
+                                <h2>Contacto</h2>
+                                <p>Datos utilizados para la publicación.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="campo">
+
+                            <label for="telefono">
+                                WhatsApp / teléfono
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefono"
+                                name="telefono"
+                                maxlength="20"
+                                inputmode="tel"
+                                placeholder="Ej. 999 999 999"
+                            >
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- AVISO -->
+                    <div class="aviso-seguridad">
+
+                        <span>🔒</span>
+
+                        <div>
+                            <strong>Tu información está protegida</strong>
+
+                            <p>
+                                Solo publicaremos la información necesaria
+                                para que los compradores puedan contactar
+                                contigo.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOTÓN -->
+                    <div class="acciones-formulario">
+
+                        <a
+                            href="../index.html"
+                            class="btn-cancelar"
+                        >
+                            Cancelar
+                        </a>
+
+                        <button
+                            type="submit"
+                            id="btn-publicar"
+                            class="btn-publicar"
+                        >
+                            <span class="texto-boton">
+                                🚀 Publicar producto
+                            </span>
+
+                            <span
+                                class="loader-boton"
+                                aria-hidden="true"
+                            ></span>
+                        </button>
+
+                    </div>
+
+                    <p
+                        class="mensaje-general"
+                        id="mensaje-general"
+                        role="alert"
+                    ></p>
+
+                </form>
+
+            </div>
+
+
+            <!-- VISTA PREVIA -->
+            <aside class="panel-preview">
+
+                <div class="preview-cabecera">
+                    <span>VISTA PREVIA</span>
+                    <small>Así podría verse tu publicación</small>
+                </div>
+
+
+                <article class="tarjeta-producto">
+
+                    <div
+                        class="producto-imagen"
+                        id="producto-imagen"
+                    >
+
+                        <div class="placeholder-imagen">
+                            <span>📷</span>
+                            <p>Tu foto aparecerá aquí</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="producto-contenido">
+
+                        <div class="producto-categoria">
+                            NUEVO PRODUCTO
+                        </div>
+
+                        <h3 id="preview-nombre">
+                            Nombre del producto
+                        </h3>
+
+                        <div
+                            class="producto-precio"
+                            id="preview-precio"
+                        >
+                            S/ 0.00
+                        </div>
+
+                        <p
+                            class="producto-descripcion"
+                            id="preview-descripcion"
+                        >
+                            Aquí aparecerá la descripción de tu producto.
+                        </p>
+
+
+                        <div class="producto-meta">
+
+                            <span id="preview-categoria">
+                                📦 Categoría
+                            </span>
+
+                            <span id="preview-ubicacion">
+                                📍 Ubicación
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="preview-boton"
+                            disabled
+                        >
+                            Ver publicación
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <div class="consejos">
+
+                    <h3>💡 Consejos para vender</h3>
+
+                    <ul>
+
+                        <li>
+                            Usa fotografías claras y reales.
+                        </li>
+
+                        <li>
+                            Coloca un precio competitivo.
+                        </li>
+
+                        <li>
+                            Describe correctamente el estado.
+                        </li>
+
+                        <li>
+                            No publiques datos personales innecesarios.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+
+    <!-- Lógica exclusiva de este módulo -->
+    <script src="Vender.js"></script>
+
+</body>
+</html>

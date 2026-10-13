@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rantiy y Rantikuy - Marketplace para comprar y vender productos.">
+    <meta name="theme-color" content="#6d28d9">
+
+    <title>Rantiy y Rantikuy | Marketplace</title>
+
+    <!-- Conexión anticipada a Firebase: la página carga más rápido -->
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+
+    <link rel="stylesheet" href="Principal/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         1. CABECERA PRINCIPAL
+    ========================================== -->
+
+    <header class="header-principal">
+
+        <div class="logo-contenedor">
+            <h1>🛍️ Rantiy y Rantikuy</h1>
+        </div>
+
+        <div class="barra-busqueda">
+            <input
+                type="search"
+                id="input-busqueda"
+                placeholder="Buscar zapatillas, relojes, ropa..."
+                aria-label="Buscar productos"
+            >
+            <button class="btn-buscar" id="btn-buscar" type="button">
+                Buscar
+            </button>
+        </div>
+
+        <div class="acciones-usuario">
+            <a href="#" class="icono-carrito" id="btn-carrito">
+                🛒 Carrito (0)
+            </a>
+            <a href="#" class="btn-login">
+                Iniciar Sesión
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         2. BARRA DE CATEGORÍAS
+    ========================================== -->
+
+    <nav class="barra-categorias" aria-label="Navegación principal">
+        <ul>
+            <!-- Abre Vender en pestaña nueva (rel = seguridad de la pestaña nueva) -->
+            <li><a href="Vender/Vender.html" target="_blank" rel="noopener noreferrer">Vender</a></li>
+
+            <!-- Único con data-categoria: limpia los filtros con JavaScript -->
+            <li><a href="#" data-categoria="todo">Todo</a></li>
+
+            <!-- Enlaces a las otras secciones del proyecto -->
+            <li><a href="Chat/Chat.html">💬 CHAT-HUANTA</a></li>
+            <li><a href="TAXI_HUANTA/TAXI_HUANTA.html">🚕 TAXI HUANTA</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- =========================================
+         3. BANNER PRINCIPAL
+    ========================================== -->
+
+    <section class="banner-hero">
+        <div class="contenido-banner">
+            <h2>Compra y Vende en Huanta</h2>
+            <p>Encuentra productos y oportunidades cerca de ti.</p>
+            <button class="btn-banner" type="button">
+                Explorar productos
+            </button>
+        </div>
+    </section>
+
+
+    <!-- =========================================
+         4. CONTENIDO PRINCIPAL
+    ========================================== -->
+
+    <main class="contenedor-principal">
+
+        <!-- =====================================
+             COLUMNA IZQUIERDA: FILTROS
+        ====================================== -->
+        <aside class="panel-filtros">
+
+            <h3>Filtros</h3>
+
+            <!-- Categorías -->
+            <div class="grupo-filtro">
+                <h4>Categorías</h4>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="moda">
+                    Ropa y Moda
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="tecnologia">
+                    Electrónica
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="accesorios">
+                    Accesorios
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="hogar">
+                    Hogar y Muebles
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="vehiculos">
+                    Vehículos
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="deportes">
+                    Deportes y Fitness
+                </label>
+
+                <label>
+                    <input type="checkbox" name="categoria" value="servicios">
+                    Servicios
+                </label>
+            </div>
+
+            <!-- Precio (el valor inicial ahora coincide con el máximo del slider) -->
+            <div class="grupo-filtro">
+                <h4>Precio máximo</h4>
+
+                <input
+                    type="range"
+                    id="filtro-precio"
+                    min="0"
+                    max="1000"
+                    value="1000"
+                    aria-label="Precio máximo"
+                >
+
+                <p>Hasta $<span id="valor-precio">1000</span></p>
+            </div>
+
+            <!-- Botón limpiar -->
+            <button
+                class="btn-limpiar-filtros"
+                id="btn-limpiar-filtros"
+                type="button"
+            >
+                Limpiar filtros
+            </button>
+
+        </aside>
+
+
+        <!-- =====================================
+             COLUMNA DERECHA: PRODUCTOS
+        ====================================== -->
+        <section class="catalogo-productos">
+
+            <div class="titulo-catalogo">
+                <div>
+                    <h3>Resultados Populares</h3>
+                    <!-- aria-live avisa a lectores de pantalla cuando cambia el número -->
+                    <p id="contador-productos" aria-live="polite">
+                        Productos disponibles
+                    </p>
+                </div>
+            </div>
+
+            <!-- Aquí JavaScript dibuja los productos -->
+            <div class="grid-productos" id="contenedor-productos"></div>
+
+            <!-- Mensaje cuando no existen resultados -->
+            <div class="sin-resultados" id="sin-resultados" hidden>
+                <h3>😕 No encontramos productos</h3>
+                <p>Intenta cambiar la búsqueda o los filtros.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         5. PIE DE PÁGINA
+    ========================================== -->
+
+    <footer class="footer-personal">
+
+        <div class="footer-contenido">
+
+            <!-- Columna 1: Sobre el proyecto -->
+            <div class="footer-seccion">
+                <h3>Sobre Rantiy y Rantikuy 🛍️</h3>
+                <p>¡Hola! Soy el creador de este espacio. Rantiy y Rantikuy nació para conectar a nuestra comunidad, facilitando las compras, ventas y avisos locales de forma rápida y segura.</p>
+            </div>
+
+            <!-- Columna 2: Contacto -->
+            <div class="footer-seccion">
+                <h3>Contacto</h3>
+                <p>¿Tienes dudas o sugerencias? Escríbeme directamente:</p>
+                <ul class="lista-contacto">
+                    <li>📧 correo@ejemplo.com</li>
+                    <li>📱 +51 987 654 321</li>
+                    <li>📍 Huanta, Ayacucho</li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Redes sociales -->
+            <div class="footer-seccion">
+                <h3>Síguenos</h3>
+                <p>Únete a nuestra comunidad en redes sociales:</p>
+                <div class="redes-iconos">
+                    <a href="#" title="Facebook">📘 Facebook</a>
+                    <a href="#" title="WhatsApp">🟩 WhatsApp</a>
+                    <a href="#" title="Instagram">📸 Instagram</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Rantiy y Rantikuy. Desarrollado con 💜 para la comunidad.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         6. MODAL DE LOGIN
+    ========================================== -->
+
+    <dialog id="modal-login" class="modal-login">
+
+        <div class="modal-contenido">
+
+            <button
+                id="btn-cerrar-modal"
+                class="btn-cerrar-modal"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ✕
+            </button>
+
+            <h3>Bienvenido de nuevo 👋</h3>
+
+            <p class="texto-modal">Ingresa a tu cuenta para continuar.</p>
+
+            <form id="form-login">
+
+                <label for="correo-login">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo-login"
+                    placeholder="Tu correo"
+                    autocomplete="email"
+                    required
+                >
+
+                <label for="password-login">Contraseña</label>
+                <input
+                    type="password"
+                    id="password-login"
+                    placeholder="Contraseña"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="btn-entrar">
+                    Entrar
+                </button>
+
+            </form>
+
+        </div>
+
+    </dialog>
+
+    <!-- =========================================
+         7. JAVASCRIPT PRINCIPAL + FIREBASE
+         (main.js importa ../firebase/firebase-config.js
+          y usa productos.js solo como respaldo de demostración)
+    ========================================== -->
+
+    <script type="module" src="./Principal/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+/* --- ESTILOS GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #e2e8f0; /* Fondo grisáceo para resaltar el chat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.foro-container {
+    width: 100%;
+    max-width: 800px;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 800px) {
+    .foro-container {
+        height: 90vh; /* En PC no ocupará toda la pantalla de alto */
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
+
+/* --- CABECERA (HEADER) --- */
+.foro-header {
+    background-color: #1e40af; /* Azul oscuro elegante */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.btn-volver {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.btn-volver:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.foro-info h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.foro-info p {
+    font-size: 12px;
+    color: #bfdbfe;
+}
+
+/* --- ÁREA DE MENSAJES --- */
+.foro-mensajes {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- BURBUJAS DE COMENTARIO --- */
+.comentario {
+    background: white;
+    padding: 12px 16px;
+    border-radius: 0 16px 16px 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    max-width: 85%;
+    align-self: flex-start;
+    border: 1px solid #e2e8f0;
+    position: relative;
+}
+
+.comentario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    gap: 15px;
+}
+
+.autor {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1e40af;
+}
+
+.hora {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.texto {
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* --- ZONA DE INPUT Y FORMULARIO --- */
+.foro-input-area {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+#form-chat {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Input de texto */
+#input-mensaje {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 24px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#input-mensaje:focus {
+    border-color: #1e40af;
+}
+
+/* Botón de Enviar */
+#btn-enviar {
+    background-color: #1e40af;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#btn-enviar:hover {
+    background-color: #1e3a8a;
+}
+
+/* --- ADJUNTAR ARCHIVOS (Tus estilos mejorados) --- */
+.btn-adjuntar {
+    background-color: transparent;
+    color: #64748b;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.btn-adjuntar:hover {
+    background-color: #f1f5f9;
+    color: #1e40af;
+}
+
+.info-archivo {
+    font-size: 12px;
+    color: #1e40af;
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: none;
+    background: #eff6ff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px dashed #bfdbfe;
+}
+
+/* --- MULTIMEDIA DENTRO DEL COMENTARIO --- */
+.multimedia-comentario {
+    margin-top: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.multimedia-comentario img,
+.multimedia-comentario video {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain; /* Evita que las fotos se deformen */
+    display: block;
+    background-color: #0f172a;
+}
+
+.multimedia-comentario audio {
+    width: 100%;
+    height: 40px;
+    display: block;
+}
