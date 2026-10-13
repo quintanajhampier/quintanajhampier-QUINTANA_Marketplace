@@ -1,2 +1,1 @@
-QUINTANA_Marketplace
 HUANTA-Marketplace
